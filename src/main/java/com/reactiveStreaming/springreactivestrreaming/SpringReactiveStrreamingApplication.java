@@ -22,6 +22,7 @@ public class SpringReactiveStrreamingApplication {
 	// Every call return - 206 Partial Content - in the network tab
 	@GetMapping(value = "/video/{title}", produces = "video/mp4")
 	public Mono<Resource> loadVideos(@PathVariable String title, @RequestHeader("Range") String range) {
+		System.out.println("range in bytes : " + range);
 		return service.loadVideoResource(title);
 	}
 
